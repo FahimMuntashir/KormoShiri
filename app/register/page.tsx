@@ -11,15 +11,19 @@ export default function Register() {
     email: "",
     password: "",
     phone: "",
+    role: "student",
   });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -60,6 +64,20 @@ export default function Register() {
         {error && <div className={styles.error}>{error}</div>}
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.formGroup}>
+            <label htmlFor="role">I am a</label>
+            <select
+              id="role"
+              name="role"
+              value={formData.role}
+              onChange={handleChange}
+              required
+              className={styles.select}
+            >
+              <option value="student">Student</option>
+              <option value="recruiter">Recruiter</option>
+            </select>
+          </div>
+          <div className={styles.formGroup}>
             <label htmlFor="full_name">Full Name</label>
             <input
               type="text"
@@ -69,6 +87,7 @@ export default function Register() {
               onChange={handleChange}
               required
               className={styles.input}
+              placeholder="Enter your full name"
             />
           </div>
           <div className={styles.formGroup}>
@@ -81,6 +100,7 @@ export default function Register() {
               onChange={handleChange}
               required
               className={styles.input}
+              placeholder="Enter your email"
             />
           </div>
           <div className={styles.formGroup}>
@@ -93,6 +113,7 @@ export default function Register() {
               onChange={handleChange}
               required
               className={styles.input}
+              placeholder="Enter your password"
             />
           </div>
           <div className={styles.formGroup}>
@@ -104,6 +125,7 @@ export default function Register() {
               value={formData.phone}
               onChange={handleChange}
               className={styles.input}
+              placeholder="Enter your phone number"
             />
           </div>
           <button

@@ -18,6 +18,21 @@
   color: #007bff;
 }
 
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.userRole {
+  background-color: #e9ecef;
+  color: #495057;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
 .logoutButton {
   background-color: transparent;
   color: #666;
@@ -106,13 +121,15 @@
 
 .progressInfo,
 .coursesList,
-.jobsList {
+.jobsList,
+.recruiterInfo {
   margin-bottom: 1rem;
 }
 
 .progressInfo p,
 .coursesList p,
-.jobsList p {
+.jobsList p,
+.recruiterInfo p {
   color: #666;
   font-size: 0.9rem;
   line-height: 1.5;

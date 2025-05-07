@@ -8,6 +8,7 @@ interface User {
   id: number;
   full_name: string;
   email: string;
+  role: "student" | "recruiter";
 }
 
 interface Profile {
@@ -55,15 +56,24 @@ export default function Dashboard() {
     <div className={styles.container}>
       <nav className={styles.navbar}>
         <div className={styles.logo}>KormoShiri</div>
-        <button onClick={handleLogout} className={styles.logoutButton}>
-          Log out
-        </button>
+        <div className={styles.userInfo}>
+          <span className={styles.userRole}>
+            {user.role === "student" ? "Student" : "Recruiter"}
+          </span>
+          <button onClick={handleLogout} className={styles.logoutButton}>
+            Log out
+          </button>
+        </div>
       </nav>
 
       <main className={styles.main}>
         <div className={styles.welcomeSection}>
           <h1>Welcome, {user.full_name}!</h1>
-          <p>Your career journey starts here.</p>
+          <p>
+            Your{" "}
+            {user.role === "student" ? "career journey" : "recruitment journey"}{" "}
+            starts here.
+          </p>
         </div>
 
         <div className={styles.dashboardGrid}>
@@ -72,6 +82,10 @@ export default function Dashboard() {
             <div className={styles.profileInfo}>
               <p>
                 <strong>Email:</strong> {user.email}
+              </p>
+              <p>
+                <strong>Role:</strong>{" "}
+                {user.role === "student" ? "Student" : "Recruiter"}
               </p>
               {profile?.bio && (
                 <p>
@@ -87,32 +101,68 @@ export default function Dashboard() {
             <button className={styles.editButton}>Edit Profile</button>
           </div>
 
-          <div className={styles.card}>
-            <h2>Career Progress</h2>
-            <div className={styles.progressInfo}>
-              <p>
-                Complete your profile to get personalized career
-                recommendations.
-              </p>
-            </div>
-            <button className={styles.actionButton}>View Progress</button>
-          </div>
+          {user.role === "student" ? (
+            <>
+              <div className={styles.card}>
+                <h2>Career Progress</h2>
+                <div className={styles.progressInfo}>
+                  <p>
+                    Complete your profile to get personalized career
+                    recommendations.
+                  </p>
+                </div>
+                <button className={styles.actionButton}>View Progress</button>
+              </div>
 
-          <div className={styles.card}>
-            <h2>Recommended Courses</h2>
-            <div className={styles.coursesList}>
-              <p>Complete your profile to get course recommendations.</p>
-            </div>
-            <button className={styles.actionButton}>Browse Courses</button>
-          </div>
+              <div className={styles.card}>
+                <h2>Recommended Courses</h2>
+                <div className={styles.coursesList}>
+                  <p>Complete your profile to get course recommendations.</p>
+                </div>
+                <button className={styles.actionButton}>Browse Courses</button>
+              </div>
 
-          <div className={styles.card}>
-            <h2>Job Opportunities</h2>
-            <div className={styles.jobsList}>
-              <p>Complete your profile to see matching job opportunities.</p>
-            </div>
-            <button className={styles.actionButton}>View Jobs</button>
-          </div>
+              <div className={styles.card}>
+                <h2>Job Opportunities</h2>
+                <div className={styles.jobsList}>
+                  <p>
+                    Complete your profile to see matching job opportunities.
+                  </p>
+                </div>
+                <button className={styles.actionButton}>View Jobs</button>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className={styles.card}>
+                <h2>Post a Job</h2>
+                <div className={styles.recruiterInfo}>
+                  <p>Create and manage job postings for your company.</p>
+                </div>
+                <button className={styles.actionButton}>Post New Job</button>
+              </div>
+
+              <div className={styles.card}>
+                <h2>Manage Applications</h2>
+                <div className={styles.recruiterInfo}>
+                  <p>View and manage job applications from candidates.</p>
+                </div>
+                <button className={styles.actionButton}>
+                  View Applications
+                </button>
+              </div>
+
+              <div className={styles.card}>
+                <h2>Company Profile</h2>
+                <div className={styles.recruiterInfo}>
+                  <p>Manage your company's profile and branding.</p>
+                </div>
+                <button className={styles.actionButton}>
+                  Edit Company Profile
+                </button>
+              </div>
+            </>
+          )}
         </div>
       </main>
     </div>

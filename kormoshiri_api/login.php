@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $data['password'];
     
     // Get user
-    $sql = "SELECT id, full_name, email, password FROM users WHERE email = '$email'";
+    $sql = "SELECT id, full_name, email, password, role FROM users WHERE email = '$email'";
     $result = $conn->query($sql);
     
     if ($result->num_rows === 1) {

@@ -10,8 +10,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
     
     // Validate required fields
-    if (!isset($data['full_name']) || !isset($data['email']) || !isset($data['password'])) {
+    if (!isset($data['full_name']) || !isset($data['email']) || !isset($data['password']) || !isset($data['role'])) {
         echo json_encode(['success' => false, 'message' => 'Missing required fields']);
+        exit;
+    }
+    
+    // Validate role
+    if (!in_array($data['role'], ['student', 'recruiter'])) {
+        echo json_encode(['success' => false, 'message' => 'Invalid role']);
         exit;
     }
     
@@ -19,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $conn->real_escape_string($data['email']);
     $password = password_hash($data['password'], PASSWORD_DEFAULT);
     $phone = isset($data['phone']) ? $conn->real_escape_string($data['phone']) : null;
+    $role = $conn->real_escape_string($data['role']);
     
     // Check if email already exists
     $check_email = $conn->query("SELECT id FROM users WHERE email = '$email'");
@@ -28,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
     // Insert new user
-    $sql = "INSERT INTO users (full_name, email, password, phone) VALUES ('$full_name', '$email', '$password', '$phone')";
+    $sql = "INSERT INTO users (full_name, email, password, phone, role) VALUES ('$full_name', '$email', '$password', '$phone', '$role')";
     
     if ($conn->query($sql)) {
         $user_id = $conn->insert_id;
