@@ -1,0 +1,54 @@
+@startuml
+!theme plain
+skinparam backgroundColor white
+skinparam handwritten false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+
+title KormoShiri System Architecture
+
+package "Frontend (Next.js)" {
+    [Pages]
+    [Components]
+    [State Management]
+    [API Client]
+}
+
+package "Backend (PHP)" {
+    [Authentication Service]
+    [Job Management Service]
+    [User Management Service]
+    [Database Service]
+}
+
+database "MySQL Database" {
+    [Users Table]
+    [Jobs Table]
+    [Applications Table]
+}
+
+cloud "External Services" {
+    [Email Service]
+    [File Storage]
+}
+
+[Pages] --> [Components]
+[Components] --> [State Management]
+[State Management] --> [API Client]
+[API Client] --> [Authentication Service]
+[API Client] --> [Job Management Service]
+[API Client] --> [User Management Service]
+
+[Authentication Service] --> [Database Service]
+[Job Management Service] --> [Database Service]
+[User Management Service] --> [Database Service]
+
+[Database Service] --> [Users Table]
+[Database Service] --> [Jobs Table]
+[Database Service] --> [Applications Table]
+
+[Authentication Service] --> [Email Service]
+[User Management Service] --> [File Storage]
+[Job Management Service] --> [File Storage]
+
+@enduml 

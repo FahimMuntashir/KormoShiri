@@ -1,0 +1,151 @@
+@startuml KormoShiri System Design
+
+' Styling
+skinparam componentStyle uml2
+skinparam backgroundColor white
+skinparam handwritten false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam roundcorner 20
+skinparam shadowing true
+
+' Title
+title KormoShiri - System Architecture Diagram
+
+' Frontend Components
+package "Frontend (Next.js)" {
+    [Pages] as pages
+    [Components] as components
+    [State Management] as state
+    [API Client] as apiClient
+}
+
+' Backend Components
+package "Backend (PHP)" {
+    [Authentication Service] as auth
+    [Job Management Service] as jobService
+    [User Management Service] as userService
+    [Database Service] as dbService
+}
+
+' Database
+database "MySQL Database" {
+    [Users Table] as users
+    [Jobs Table] as jobs
+    [Applications Table] as applications
+}
+
+' External Services
+cloud "External Services" {
+    [Email Service] as email
+    [File Storage] as storage
+}
+
+' Frontend Relationships
+pages --> components : uses
+components --> state : manages
+state --> apiClient : requests
+apiClient --> auth : authenticates
+apiClient --> jobService : requests
+apiClient --> userService : requests
+
+' Backend Relationships
+auth --> dbService : queries
+jobService --> dbService : queries
+userService --> dbService : queries
+dbService --> users : manages
+dbService --> jobs : manages
+dbService --> applications : manages
+
+' External Service Relationships
+auth --> email : sends
+userService --> storage : manages
+jobService --> storage : manages
+
+' Class Diagram
+class User {
+    +userId: string
+    +username: string
+    +email: string
+    +password: string
+    +role: string
+    +createProfile()
+    +updateProfile()
+    +applyForJob()
+}
+
+class Job {
+    +jobId: string
+    +title: string
+    +description: string
+    +requirements: string[]
+    +company: string
+    +location: string
+    +salary: number
+    +createJob()
+    +updateJob()
+    +deleteJob()
+}
+
+class Application {
+    +applicationId: string
+    +userId: string
+    +jobId: string
+    +status: string
+    +applyDate: date
+    +submitApplication()
+    +updateStatus()
+}
+
+class AuthService {
+    +login()
+    +register()
+    +logout()
+    +validateToken()
+}
+
+class JobService {
+    +createJob()
+    +updateJob()
+    +deleteJob()
+    +searchJobs()
+    +filterJobs()
+}
+
+class UserService {
+    +createUser()
+    +updateUser()
+    +deleteUser()
+    +getUserProfile()
+}
+
+' Relationships between classes
+User "1" -- "0..*" Application : submits
+Job "1" -- "0..*" Application : receives
+AuthService --> User : manages
+JobService --> Job : manages
+UserService --> User : manages
+
+' Sequence Diagram for Job Application
+sequence "Job Application Process" {
+    User -> AuthService : login()
+    AuthService --> User : token
+    User -> JobService : searchJobs()
+    JobService --> User : jobListings
+    User -> JobService : applyForJob()
+    JobService -> Application : create()
+    Application --> JobService : confirmation
+    JobService --> User : success
+}
+
+' Component Diagram
+component [Frontend] as frontend
+component [Backend API] as backend
+component [Database] as database
+component [External Services] as external
+
+frontend --> backend : HTTP/HTTPS
+backend --> database : SQL
+backend --> external : API calls
+
+@enduml 

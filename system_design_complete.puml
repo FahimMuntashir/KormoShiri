@@ -1,0 +1,192 @@
+@startuml
+!theme plain
+skinparam backgroundColor white
+skinparam handwritten false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam componentStyle uml2
+skinparam roundcorner 20
+skinparam shadowing true
+
+title KormoShiri - Complete System Architecture
+
+' Frontend Components
+package "Frontend (Next.js)" {
+    package "Pages" {
+        [Home Page]
+        [Job Listings]
+        [Job Details]
+        [User Profile]
+        [Company Profile]
+        [Search Results]
+        [Authentication Pages]
+    }
+
+    package "Components" {
+        [Navigation Bar]
+        [Job Card]
+        [Search Filters]
+        [Application Form]
+        [Profile Editor]
+        [Job Posting Form]
+        [Notifications]
+    }
+
+    package "State Management" {
+        [Context API]
+        [Redux Store]
+        [Local Storage]
+    }
+
+    package "API Integration" {
+        [REST Client]
+        [WebSocket Client]
+        [File Upload]
+    }
+}
+
+' Backend Components
+package "Backend (PHP)" {
+    package "Authentication" {
+        [JWT Service]
+        [OAuth Integration]
+        [Password Management]
+        [Session Handler]
+    }
+
+    package "Job Management" {
+        [Job CRUD]
+        [Search Engine]
+        [Application Handler]
+        [Recommendation Engine]
+    }
+
+    package "User Management" {
+        [Profile Service]
+        [Role Management]
+        [Preferences]
+        [Notification Service]
+    }
+
+    package "File Management" {
+        [Upload Handler]
+        [Storage Service]
+        [File Validation]
+    }
+
+    package "Database Service" {
+        [Query Builder]
+        [Connection Pool]
+        [Transaction Manager]
+    }
+}
+
+' Database Schema
+database "MySQL Database" {
+    package "User Schema" {
+        [Users]
+        [User_Profiles]
+        [User_Preferences]
+        [User_Skills]
+    }
+
+    package "Job Schema" {
+        [Jobs]
+        [Job_Requirements]
+        [Job_Categories]
+        [Job_Applications]
+    }
+
+    package "Company Schema" {
+        [Companies]
+        [Company_Profiles]
+        [Company_Reviews]
+    }
+
+    package "System Schema" {
+        [Notifications]
+        [Audit_Logs]
+        [System_Settings]
+    }
+}
+
+' External Services
+cloud "External Services" {
+    [Email Service]
+    [File Storage (S3)]
+    [Payment Gateway]
+    [Analytics Service]
+    [Search Engine]
+}
+
+' Security Layer
+package "Security" {
+    [SSL/TLS]
+    [Rate Limiting]
+    [Input Validation]
+    [XSS Protection]
+    [CSRF Protection]
+}
+
+' Frontend Relationships
+[Pages] --> [Components]
+[Components] --> [State Management]
+[State Management] --> [API Integration]
+[API Integration] --> [REST Client]
+[API Integration] --> [WebSocket Client]
+
+' Backend Relationships
+[REST Client] --> [Authentication]
+[REST Client] --> [Job Management]
+[REST Client] --> [User Management]
+[REST Client] --> [File Management]
+
+[Authentication] --> [Database Service]
+[Job Management] --> [Database Service]
+[User Management] --> [Database Service]
+[File Management] --> [Database Service]
+
+' Database Relationships
+[Database Service] --> [User Schema]
+[Database Service] --> [Job Schema]
+[Database Service] --> [Company Schema]
+[Database Service] --> [System Schema]
+
+' External Service Relationships
+[Authentication] --> [Email Service]
+[File Management] --> [File Storage (S3)]
+[Job Management] --> [Payment Gateway]
+[User Management] --> [Analytics Service]
+[Job Management] --> [Search Engine]
+
+' Security Relationships
+[Security] --> [Authentication]
+[Security] --> [REST Client]
+[Security] --> [Database Service]
+
+' Data Flow
+note right of [Job Management]
+  Handles job posting,
+  application processing,
+  and job recommendations
+end note
+
+note right of [User Management]
+  Manages user profiles,
+  preferences, and
+  notification settings
+end note
+
+note right of [Authentication]
+  Handles user authentication,
+  authorization, and
+  session management
+end note
+
+note right of [File Management]
+  Manages file uploads,
+  storage, and
+  retrieval
+end note
+
+@enduml 
