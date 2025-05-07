@@ -128,7 +128,7 @@ export default function Home() {
             How It Works
           </a>
           <a href="#success" className={styles.navLink}>
-            Success Stories
+            Courses
           </a>
           <a href="#partners" className={styles.navLink}>
             Partners
@@ -179,7 +179,7 @@ export default function Home() {
             Your All-in-One Career Development Platform
           </h2>
           <p className={styles.featuresSubtitle}>
-            SkillBridge combines AI-powered guidance, industry-led learning, and
+            KormoShiri combines AI-powered guidance, industry-led learning, and
             real-world experience to prepare you for success.
           </p>
         </div>
@@ -263,7 +263,7 @@ export default function Home() {
             Your Journey to Career Success
           </h2>
           <p className={styles.processSubtitle}>
-            SkillBridge guides you through every step of your career development
+            KormoShiri guides you through every step of your career development
             journey.
           </p>
         </div>
@@ -441,7 +441,7 @@ export default function Home() {
           <button className={styles.coursesViewAllBtn}>View All Courses →</button>
         </div>
       </section>
-      <section className={styles.partnersSection}>
+    {/*   <section className={styles.partnersSection}>
         <div className={styles.partnersHeader}>
           <div className={styles.partnersBadge}>Our Network</div>
           <h2 className={styles.partnersTitle}>Industry Partners</h2>
@@ -458,13 +458,13 @@ export default function Home() {
           <div className={styles.partnerLogoPlaceholder}></div>
           <div className={styles.partnerLogoPlaceholder}></div>
         </div>
-      </section>
+      </section> */}
       <section className={styles.ctaSection}>
         <div className={styles.ctaContainer}>
           <h2 className={styles.ctaTitle}>Ready to Build Your Future?</h2>
           <p className={styles.ctaSubtitle}>
             Join thousands of students already transforming their careers with
-            SkillBridge.
+            KormoShiri.
           </p>
           <div className={styles.ctaActions}>
             <button className={styles.ctaBtn}>Create Free Account</button>

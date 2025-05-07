@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 24px 48px 0 48px;
-  background: transparent;
+  background: #fff;
 }
 
 .logoContainer {
@@ -20,16 +20,17 @@
 }
 
 .logoImg {
-  width: 200px;
-  height: 200px;
+  width: 80px;
+  height: 80px;
   object-fit: contain;
 }
 
 .brand {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #1a7f3c;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #222;
   letter-spacing: 0.5px;
+  margin-top: 8px;
 }
 
 .navLinks {
@@ -275,30 +276,33 @@
   margin: 0 auto;
 }
 .roadmapWrapper {
-  position: relative;
-  max-width: 1200px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px 0 rgba(26,127,60,0.08);
+  padding: 40px 32px 32px 32px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 24px;
+  position: relative;
 }
 .roadmapLine {
   position: absolute;
-  top: 54px;
+  top: 38px;
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #1a7f3c 0%, #b6e7c9 100%);
+  background: #15803d;
   z-index: 1;
   border-radius: 2px;
-  animation: roadmapLineGrow 1.2s cubic-bezier(.7,0,.3,1) 0.2s both;
-}
-@keyframes roadmapLineGrow {
-  from { width: 0; opacity: 0; }
-  to { width: 100%; opacity: 1; }
+  width: 97%;
+  margin: 0 auto;
+  left: 1.5%;
+  right: 1.5%;
 }
 .roadmapSteps {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  gap: 0;
   position: relative;
   z-index: 2;
 }
@@ -311,27 +315,22 @@
   max-width: 200px;
   text-align: center;
   background: transparent;
+  padding: 0 12px;
 }
 .roadmapCircle {
-  width: 48px;
-  height: 48px;
-  background: #1a7f3c;
+  width: 38px;
+  height: 38px;
+  background: #15803d;
   color: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   box-shadow: 0 2px 10px 0 rgba(26,127,60,0.10);
-  border: 4px solid #e6f9ee;
-  animation: roadmapCirclePop 0.7s cubic-bezier(.7,0,.3,1) both;
-}
-@keyframes roadmapCirclePop {
-  0% { transform: scale(0.5); opacity: 0; }
-  80% { transform: scale(1.15); opacity: 1; }
-  100% { transform: scale(1); }
+  border: 3px solid #e6f9ee;
 }
 .roadmapStepTitle {
   font-size: 1.08rem;
@@ -345,17 +344,13 @@
   line-height: 1.5;
 }
 .roadmapArrow {
-  font-size: 2.2rem;
-  color: #1a7f3c;
+  font-size: 2.1rem;
+  color: #15803d;
   margin: 0 0.5vw;
-  align-self: flex-start;
-  margin-top: 38px;
+  align-self: center;
+  margin-top: 0;
   opacity: 0.7;
-  animation: roadmapArrowFade 1.2s cubic-bezier(.7,0,.3,1) both;
-}
-@keyframes roadmapArrowFade {
-  from { opacity: 0; transform: translateX(-10px); }
-  to { opacity: 0.7; transform: translateX(0); }
+  font-weight: bold;
 }
 @media (max-width: 1100px) {
   .roadmapSteps {
@@ -368,6 +363,9 @@
   }
 }
 @media (max-width: 800px) {
+  .roadmapWrapper {
+    padding: 18px 4px 18px 4px;
+  }
   .roadmapSteps {
     flex-direction: column;
     align-items: center;
@@ -476,10 +474,10 @@
   justify-content: flex-start;
 }
 .advisorChatBox {
-  background: #f8fdfb;
+  background: #fff;
   border: 1.5px solid #e6f9ee;
   border-radius: 18px;
-  box-shadow: 0 2px 16px 0 rgba(26,127,60,0.06);
+  box-shadow: 0 4px 32px 0 rgba(26,127,60,0.10);
   padding: 28px 24px 18px 24px;
   width: 100%;
   max-width: 420px;
@@ -691,13 +689,19 @@
   padding: 2px 12px;
 }
 .courseTagGreen {
-  background: #1a7f3c;
+  background: #15803d;
   color: #fff;
+  border-radius: 8px;
+  padding: 2px 12px;
+  margin-left: 6px;
+  font-size: 0.93rem;
+  font-weight: 600;
+  display: inline-block;
 }
 .courseImgPlaceholder {
   width: 100%;
   height: 120px;
-  background: #f3f3f3;
+  background: #f3f3f3 url('/hero.png') center center/cover no-repeat;
   border-radius: 12px;
   margin: 16px 0 0 0;
 }
