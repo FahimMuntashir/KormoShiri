@@ -1,4 +1,4 @@
-.dashboardWrapper {
+.recruiterWrapper {
   display: flex;
   min-height: 100vh;
   background: #f8f9fb;
@@ -25,7 +25,7 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-  padding: 0 0 0 0;
+  padding: 0;
 }
 
 .sidebarNavItem {
@@ -38,6 +38,7 @@
   display: flex;
   align-items: center;
   font-weight: 500;
+  cursor: pointer;
 }
 
 .sidebarNavItem:hover,
@@ -49,7 +50,7 @@
 
 .sidebarBottom {
   margin-top: auto;
-  padding: 0 0 0 0;
+  padding: 0;
 }
 
 .mainContent {
@@ -109,135 +110,159 @@
   margin-top: 8px;
 }
 
-.progressPercent {
+.cardValue {
   font-size: 2rem;
   font-weight: 700;
   color: #222;
   margin-bottom: 8px;
 }
 
-.progressBarBg {
-  background: #ececec;
-  border-radius: 8px;
-  height: 12px;
-  width: 100%;
-  margin-bottom: 8px;
-  overflow: hidden;
+.candidatesSection {
+  margin-top: 32px;
 }
 
-.progressBar {
-  background: #0070f3;
-  height: 100%;
-  border-radius: 8px;
-  transition: width 0.3s;
-}
-
-.xpPoints {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #222;
-}
-
-.xpThisWeek {
-  color: #1db954;
-  font-size: 1rem;
-  margin-top: 4px;
-}
-
-.xpRank {
-  color: #888;
-  font-size: 0.95rem;
-  font-weight: 400;
-}
-
-.deadlineCount {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #222;
-  margin-bottom: 8px;
-}
-
-.deadlineList {
-  color: #444;
-  font-size: 1rem;
-}
-
-.deadlineItem {
-  margin-bottom: 2px;
-}
-
-.bottomCards {
-  display: flex;
-  gap: 24px;
-  margin-top: 0;
-}
-
-.nextStepsList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.nextStepItem {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
-.nextStepIcon {
-  font-size: 1.3rem;
-  margin-top: 2px;
-}
-
-.nextStepTitle {
+.candidatesHeader {
+  font-size: 1.2rem;
   font-weight: 600;
   color: #222;
-  font-size: 1rem;
-}
-
-.nextStepDesc {
-  color: #888;
-  font-size: 0.95rem;
-}
-
-.skillList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.skillItem {
-  margin-bottom: 18px;
-}
-
-.skillNameRow {
-  display: flex;
-  justify-content: space-between;
-  font-size: 1rem;
-  color: #222;
-  font-weight: 500;
   margin-bottom: 4px;
 }
 
-.skillBarBg {
-  background: #ececec;
-  border-radius: 8px;
-  height: 10px;
-  width: 100%;
-  overflow: hidden;
+.candidatesSub {
+  color: #888;
+  font-size: 1rem;
+  margin-bottom: 16px;
 }
 
-.skillBar {
-  background: #0070f3;
-  height: 100%;
-  border-radius: 8px;
-  transition: width 0.3s;
+.candidateList {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.candidateCard {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.candidateInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.candidateAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #ececec;
+  color: #222;
+  font-weight: 700;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.candidateDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.candidateName {
+  font-weight: 600;
+  color: #222;
+  font-size: 1.05rem;
+}
+
+.candidateTitle {
+  color: #888;
+  font-size: 0.98rem;
+  margin-bottom: 4px;
+}
+
+.candidateTags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.candidateTag {
+  background: #f0f4fa;
+  color: #222;
+  font-size: 0.92rem;
+  border-radius: 6px;
+  padding: 2px 10px;
+  font-weight: 500;
+}
+
+.matchPercent {
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 4px 12px;
+  margin-right: 12px;
+  background: #e6f9ed;
+  color: #1db954;
+}
+
+.matchYellow {
+  background: #fff7e0;
+  color: #e6a700;
+}
+
+.viewProfileBtn {
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.viewProfileBtn:hover {
+  background: #444;
+}
+
+.candidatesFooter {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 18px;
+  gap: 12px;
+}
+
+.candidatesFooterBtn {
+  background: #fff;
+  color: #222;
+  border: 1px solid #ececec;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.15s;
+}
+
+.candidatesFooterBtn:hover {
+  background: #f0f4fa;
 }
 
 @media (max-width: 1000px) {
   .topCards,
-  .bottomCards {
+  .candidatesSection {
     flex-direction: column;
     gap: 16px;
   }
