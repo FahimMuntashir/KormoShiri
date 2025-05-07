@@ -158,6 +158,154 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section className={styles.advisorSection}>
+        <div className={styles.advisorContainer}>
+          <div className={styles.advisorLeft}>
+            <div className={styles.advisorBadge}>AI-Powered Guidance</div>
+            <h2 className={styles.advisorTitle}>Your Personal Career Advisor</h2>
+            <p className={styles.advisorDesc}>
+              Our AI analyzes your skills, interests, and the current job market to create a personalized career roadmap just for you.
+            </p>
+            <ul className={styles.advisorList}>
+              <li>Personalized skill recommendations based on your goals</li>
+              <li>Real-time job market analysis for Bangladesh</li>
+              <li>Custom learning paths tailored to your career aspirations</li>
+              <li>Progress tracking and adaptive recommendations</li>
+            </ul>
+            <button className={styles.advisorDemoBtn}>Try AI Advisor Demo</button>
+          </div>
+          <div className={styles.advisorRight}>
+            <div className={styles.advisorChatBox}>
+              <div className={styles.advisorChatHeader}>
+                <span className={styles.advisorChatTitle}>AI Career Advisor</span>
+                <span className={styles.advisorChatSub}>Powered by GPT/SMART models</span>
+              </div>
+              <div className={styles.advisorChatMsg}>
+                <div className={styles.advisorChatMsgGray}>
+                  Based on your interest in data science and the current job market in Bangladesh, I recommend focusing on these skills:
+                </div>
+                <div className={styles.advisorChatMsgGreen}>
+                  1. Python Programming<br/>
+                  2. SQL & Database Management<br/>
+                  3. Data Visualization<br/>
+                  4. Machine Learning Fundamentals
+                </div>
+                <div className={styles.advisorChatMsgGray}>
+                  The tech sector in Dhaka currently has 120+ open positions requiring these skills, with an average salary of 65,000/month.
+                </div>
+                <div className={styles.advisorChatMsgGray}>
+                  Would you like me to create a 3-month learning roadmap for these skills?
+                </div>
+                <div className={styles.advisorChatUser}>hello</div>
+              </div>
+              <div className={styles.advisorChatInputRow}>
+                <input className={styles.advisorChatInput} placeholder="Type your message..." disabled />
+                <button className={styles.advisorChatSendBtn} disabled>Send</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className={styles.successSection}>
+        <div className={styles.successHeader}>
+          <div className={styles.successBadge}>Success Stories</div>
+          <h2 className={styles.successTitle}>From Students to Professionals</h2>
+          <p className={styles.successSubtitle}>
+            Hear from students who transformed their careers with SkillBridge.
+          </p>
+        </div>
+        <div className={styles.successCardWrapper}>
+          <div className={styles.successCard}>
+            <div className={styles.successCardProfile}>
+              <div className={styles.successAvatar}></div>
+              <div>
+                <div className={styles.successName}>Kamal Ahmed <span className={styles.successVerified}>✔</span></div>
+                <div className={styles.successRole}>UX Designer at DesignCraft</div>
+                <div className={styles.successCompany}>DesignCraft</div>
+              </div>
+            </div>
+            <div className={styles.successQuote}>
+              "As a design student, I struggled to find practical experience. SkillBridge connected me with real projects and mentors who guided my portfolio development. Now I'm working at my dream company!"
+            </div>
+          </div>
+        </div>
+        <div className={styles.successNav}>
+          <button className={styles.successNavBtn} disabled>&lt;</button>
+          <span className={styles.successNavDotActive}></span>
+          <span className={styles.successNavDot}></span>
+          <span className={styles.successNavDot}></span>
+          <button className={styles.successNavBtn}>&gt;</button>
+        </div>
+      </section>
+      <section className={styles.partnersSection}>
+        <div className={styles.partnersHeader}>
+          <div className={styles.partnersBadge}>Our Network</div>
+          <h2 className={styles.partnersTitle}>Industry Partners</h2>
+          <p className={styles.partnersSubtitle}>
+            We collaborate with leading companies to ensure our curriculum meets industry standards.
+          </p>
+        </div>
+        <div className={styles.partnersLogosRow}>
+          <div className={styles.partnerLogoPlaceholder}></div>
+          <div className={styles.partnerLogoPlaceholder}></div>
+          <div className={styles.partnerLogoPlaceholder}></div>
+          <div className={styles.partnerLogoPlaceholder}></div>
+          <div className={styles.partnerLogoPlaceholder}></div>
+          <div className={styles.partnerLogoPlaceholder}></div>
+        </div>
+      </section>
+      <section className={styles.ctaSection}>
+        <div className={styles.ctaContainer}>
+          <h2 className={styles.ctaTitle}>Ready to Build Your Future?</h2>
+          <p className={styles.ctaSubtitle}>
+            Join thousands of students already transforming their careers with SkillBridge.
+          </p>
+          <div className={styles.ctaActions}>
+            <button className={styles.ctaBtn}>Create Free Account</button>
+            <input className={styles.ctaInput} placeholder="Enter your email" />
+          </div>
+        </div>
+      </section>
+      <footer className={styles.footerSection}>
+        <div className={styles.footerContainer}>
+          <div className={styles.footerColLogo}>
+            <div className={styles.footerLogoRow}>
+              <span className={styles.footerLogoBox}>KS</span>
+              <span className={styles.footerBrand}>KormoShiri</span>
+            </div>
+            <div className={styles.footerDesc}>
+              Bridging the gap between education and employment in Bangladesh.
+            </div>
+          </div>
+          <div className={styles.footerCol}>
+            <div className={styles.footerColTitle}>Platform</div>
+            <a href="#" className={styles.footerLink}>Career Roadmaps</a>
+            <a href="#" className={styles.footerLink}>Courses</a>
+            <a href="#" className={styles.footerLink}>Projects</a>
+            <a href="#" className={styles.footerLink}>Internships</a>
+          </div>
+          <div className={styles.footerCol}>
+            <div className={styles.footerColTitle}>Company</div>
+            <a href="#" className={styles.footerLink}>About Us</a>
+            <a href="#" className={styles.footerLink}>Careers</a>
+            <a href="#" className={styles.footerLink}>Blog</a>
+            <a href="#" className={styles.footerLink}>Contact</a>
+          </div>
+          <div className={styles.footerCol}>
+            <div className={styles.footerColTitle}>Connect</div>
+            <a href="#" className={styles.footerLink}>Facebook</a>
+            <a href="#" className={styles.footerLink}>LinkedIn</a>
+            <a href="#" className={styles.footerLink}>Twitter</a>
+            <a href="#" className={styles.footerLink}>Instagram</a>
+          </div>
+        </div>
+        <div className={styles.footerCopyrightRow}>
+          <div className={styles.footerCopyrightLine}></div>
+          <div className={styles.footerCopyright}>
+            © 2025 KormoShiri. All rights reserved.
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
