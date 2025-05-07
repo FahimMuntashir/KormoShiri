@@ -1,0 +1,51 @@
+@startuml Test Scenarios
+
+skinparam backgroundColor white
+skinparam handwritten false
+skinparam defaultFontName Arial
+skinparam sequence {
+    ArrowColor #2C3E50
+    ActorBorderColor #2C3E50
+    LifeLineBorderColor #2C3E50
+    LifeLineBackgroundColor #ECF0F1
+    ParticipantBorderColor #2C3E50
+    ParticipantBackgroundColor #ECF0F1
+}
+
+title Test Scenarios for KormoShiri System
+
+' User Authentication Scenarios
+== User Registration ==
+actor User
+participant "Frontend" as FE
+participant "Register API" as RA
+participant "Database" as DB
+
+User -> FE: Fill registration form
+FE -> RA: Submit registration data
+RA -> DB: Store user data
+DB --> RA: Registration confirmation
+RA --> FE: Success response
+FE --> User: Show success message
+
+== User Login ==
+actor User
+participant "Frontend" as FE
+participant "Login API" as LA
+participant "Database" as DB
+
+User -> FE: Enter credentials
+FE -> LA: Submit login request
+LA -> DB: Verify credentials
+DB --> LA: Authentication result
+LA --> FE: JWT token
+FE --> User: Redirect to dashboard
+
+' Portfolio Management Scenarios
+' Project Management Scenarios
+' Learning Hub Scenarios
+' Career Roadmap Scenarios
+' Soft Skills Assessment Scenarios
+' Recruiter Interaction Scenarios
+
+@enduml 
