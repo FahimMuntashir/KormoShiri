@@ -51,7 +51,7 @@ KormoShiri Innovation: KormoShiri introduces structured micro-internships with l
 
 - Frontend: React.js
 - Backend: Node.js/Express.js
-- Database: MongoDB
+- Database: MySql
 - Authentication: JWT
 - API: RESTful
 
@@ -60,7 +60,7 @@ KormoShiri Innovation: KormoShiri introduces structured micro-internships with l
 ### Prerequisites
 
 - Node.js (v14 or higher)
-- MongoDB
+- MySql
 - npm or yarn
 
 ### Installation
@@ -68,7 +68,7 @@ KormoShiri Innovation: KormoShiri introduces structured micro-internships with l
 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/kormoshiri.git
+git clone https://github.com/FahimMuntashir/kormoshiri.git
 cd kormoshiri
 ```
 
