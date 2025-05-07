@@ -1,36 +1,132 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# KormoShiri
+
+Bangladeshi Problem: A common issue faced by fresh graduates in Bangladesh is the requirement for "prior experience" in entry-level jobs. However, there are few structured platforms where students can gain practical experience before graduation.
+KormoShiri Innovation: KormoShiri introduces structured micro-internships with local startups, non-profits, rural MSMEs, and even local government offices. These internships are short-term (1–4 weeks) and designed to fit student schedules. After completing each internship, students receive verified digital tokens or certificates that employers can trust. This helps build an "experience portfolio" before graduation.
+
+## Features
+
+### User Authentication
+
+- Secure user registration and login system
+- JWT-based authentication
+- Protected routes and API endpoints
+
+### Portfolio Management
+
+- Create and manage professional portfolios
+- Showcase projects and achievements
+- Customize portfolio presentation
+
+### Project Management
+
+- Track and manage personal and professional projects
+- Document project details and outcomes
+- Link projects to portfolio
+
+### Learning Hub
+
+- Access learning resources
+- Track skill development
+- Monitor learning progress
+
+### Career Roadmap
+
+- Plan career development
+- Set and track career goals
+- Visualize career progression
+
+### Soft Skills Assessment
+
+- Evaluate soft skills
+- Receive personalized feedback
+- Track skill improvement
+
+### Recruiter Interaction
+
+- Connect with recruiters
+- Share portfolio and achievements
+- Professional networking
+
+## Tech Stack
+
+- Frontend: React.js
+- Backend: Node.js/Express.js
+- Database: MongoDB
+- Authentication: JWT
+- API: RESTful
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js (v14 or higher)
+- MongoDB
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/yourusername/kormoshiri.git
+cd kormoshiri
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Install backend dependencies
+cd backend
+npm install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Install frontend dependencies
+cd ../frontend
+npm install
+```
 
-## Learn More
+3. Set up environment variables
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# In backend directory
+cp .env.example .env
+# Edit .env with your configuration
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Start the development servers
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+# Start backend server
+cd backend
+npm run dev
 
-## Deploy on Vercel
+# Start frontend server
+cd frontend
+npm start
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+kormoshiri/
+├── frontend/          # React frontend application
+├── backend/           # Node.js backend server
+├── docs/             # Documentation
+└── test_scenarios/   # Test scenarios and specifications
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+Your Name - [@yourtwitter](https://twitter.com/Fahim_Muntashir)
+Project Link: [https://github.com/FahimMuntashir/kormoshiri](https://github.com/FahimMuntashir/kormoshiri)
