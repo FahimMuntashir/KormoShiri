@@ -1,20 +1,123 @@
+"use client";
 import Image from "next/image";
+import { useState } from "react";
 import styles from "./Home.module.css";
 
+const coursesData = [
+  {
+    id: 1,
+    title: "Full-Stack Web Development",
+    category: "Software Development",
+    duration: "12 weeks",
+    level: "Intermediate",
+    rating: 4.8,
+    reviews: 463,
+    enrolls: 1940,
+    price: "৳1,999",
+    popular: true,
+  },
+  {
+    id: 2,
+    title: "Data Analysis with Python",
+    category: "Data Science",
+    duration: "8 weeks",
+    level: "Beginner",
+    rating: 4.7,
+    reviews: 310,
+    enrolls: 1420,
+    price: "৳1,499",
+    popular: false,
+  },
+  {
+    id: 3,
+    title: "UI/UX Design Fundamentals",
+    category: "Design",
+    duration: "6 weeks",
+    level: "Beginner",
+    rating: 4.9,
+    reviews: 256,
+    enrolls: 1560,
+    price: "৳1,999",
+    popular: true,
+  },
+  {
+    id: 4,
+    title: "Digital Marketing Strategy",
+    category: "Digital Marketing",
+    duration: "6 weeks",
+    level: "Intermediate",
+    rating: 4.6,
+    reviews: 188,
+    enrolls: 970,
+    price: "৳1,499",
+    popular: false,
+  },
+  {
+    id: 5,
+    title: "Machine Learning Fundamentals",
+    category: "Data Science",
+    duration: "10 weeks",
+    level: "Intermediate",
+    rating: 4.7,
+    reviews: 170,
+    enrolls: 860,
+    price: "৳1,499",
+    popular: false,
+  },
+  {
+    id: 6,
+    title: "Mobile App Development",
+    category: "Software Development",
+    duration: "8 weeks",
+    level: "Advanced",
+    rating: 4.7,
+    reviews: 170,
+    enrolls: 660,
+    price: "৳1,499",
+    popular: false,
+  },
+  {
+    id: 7,
+    title: "Business Analytics Essentials",
+    category: "Business",
+    duration: "7 weeks",
+    level: "Beginner",
+    rating: 4.5,
+    reviews: 90,
+    enrolls: 410,
+    price: "৳1,299",
+    popular: false,
+  },
+];
+
+const courseCategories = [
+  "All Courses",
+  "Software Development",
+  "Data Science",
+  "Digital Marketing",
+  "Design",
+  "Business",
+];
+
 export default function Home() {
+  const [selectedCategory, setSelectedCategory] = useState("All Courses");
+  const filteredCourses =
+    selectedCategory === "All Courses"
+      ? coursesData
+      : coursesData.filter((c) => c.category === selectedCategory);
+
   return (
     <div className={styles.page}>
       <nav className={styles.navbar}>
         <div className={styles.logoContainer}>
           <Image
-            src="/kormoshiri-logo.png"
+            src="/logo.png"
             alt="Kormoshiri Logo"
-            width={40}
-            height={40}
+            width={400}
+            height={400}
             className={styles.logoImg}
             priority
           />
-          <span className={styles.brand}>Kormoshiri</span>
         </div>
         <div className={styles.navLinks}>
           <a href="#features" className={styles.navLink}>Features</a>
@@ -44,7 +147,7 @@ export default function Home() {
           </div>
         </div>
         <Image
-          src="/kormoshiri-logo.png"
+          src="/hero.png"
           alt="Kormoshiri Hero Graphic"
           width={380}
           height={380}
@@ -206,35 +309,58 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className={styles.successSection}>
-        <div className={styles.successHeader}>
-          <div className={styles.successBadge}>Success Stories</div>
-          <h2 className={styles.successTitle}>From Students to Professionals</h2>
-          <p className={styles.successSubtitle}>
-            Hear from students who transformed their careers with SkillBridge.
+      <section className={styles.coursesSection}>
+        <div className={styles.coursesHeader}>
+          <div className={styles.coursesBadge}>Learning Paths</div>
+          <h2 className={styles.coursesTitle}>Explore Our Courses</h2>
+          <p className={styles.coursesSubtitle}>
+            Industry-curated courses designed to build the skills employers are looking for.
           </p>
         </div>
-        <div className={styles.successCardWrapper}>
-          <div className={styles.successCard}>
-            <div className={styles.successCardProfile}>
-              <div className={styles.successAvatar}></div>
-              <div>
-                <div className={styles.successName}>Kamal Ahmed <span className={styles.successVerified}>✔</span></div>
-                <div className={styles.successRole}>UX Designer at DesignCraft</div>
-                <div className={styles.successCompany}>DesignCraft</div>
+        <div className={styles.coursesFilters}>
+          {courseCategories.map((cat) => (
+            <button
+              key={cat}
+              className={
+                styles.coursesFilterBtn +
+                (selectedCategory === cat ? " " + styles.coursesFilterActive : "")
+              }
+              onClick={() => setSelectedCategory(cat)}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+        <div className={styles.coursesGrid}>
+          {filteredCourses.map((course) => (
+            <div className={styles.courseCard} key={course.id}>
+              <div className={styles.courseCardTop}>
+                <span className={styles.courseTag}>{course.category}</span>
+                {course.popular && (
+                  <span className={styles.courseTagGreen}>Popular</span>
+                )}
+              </div>
+              <div className={styles.courseImgPlaceholder}></div>
+              <div className={styles.courseCardBody}>
+                <div className={styles.courseTitle}>{course.title}</div>
+                <div className={styles.courseMetaRow}>
+                  <span className={styles.courseMeta}>{course.duration}</span>
+                  <span className={styles.courseMeta}>{course.level}</span>
+                </div>
+                <div className={styles.courseStatsRow}>
+                  <span className={styles.courseRating}>{course.rating} ({course.reviews})</span>
+                  <span className={styles.courseEnrolls}>{course.enrolls}</span>
+                </div>
+                <div className={styles.courseBottomRow}>
+                  <span className={styles.coursePrice}>{course.price}</span>
+                  <button className={styles.courseEnrollBtn}>Enroll Now</button>
+                </div>
               </div>
             </div>
-            <div className={styles.successQuote}>
-              "As a design student, I struggled to find practical experience. SkillBridge connected me with real projects and mentors who guided my portfolio development. Now I'm working at my dream company!"
-            </div>
-          </div>
+          ))}
         </div>
-        <div className={styles.successNav}>
-          <button className={styles.successNavBtn} disabled>&lt;</button>
-          <span className={styles.successNavDotActive}></span>
-          <span className={styles.successNavDot}></span>
-          <span className={styles.successNavDot}></span>
-          <button className={styles.successNavBtn}>&gt;</button>
+        <div className={styles.coursesFooter}>
+          <button className={styles.coursesViewAllBtn}>View All Courses →</button>
         </div>
       </section>
       <section className={styles.partnersSection}>
